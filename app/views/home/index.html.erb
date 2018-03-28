@@ -1,0 +1,10 @@
+
+<div class="container">
+  <div class="jumbotron">
+    <% if user_signed_in? %>
+    <h1>Hello <%= current_user.username %> :)</h1>
+    <% end %>
+    <h3>Welcome To Online Course</h3>
+  </div>
+  <%= link_to 'Manage Course', courses_path ,class: "btn btn-primary btn-lg btn-block"%>
+</div>

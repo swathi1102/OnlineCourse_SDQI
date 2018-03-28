@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OnlineCourse</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <a class="navbar-brand" href="/" id="navbarColor02" >Online Course</a>
+    <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">-->
+      <!--<span class="navbar-toggler-icon"></span>-->
+    <!--</button>-->
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="nav navbar-nav navbar-left" >
+
+
+        <% if user_signed_in? and current_user.admin? %>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin">Admin Dashboard</a>
+          </li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" >
+        <% if user_signed_in? %>
+          <li>
+
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete ,class: "btn btn-danger btn-small"%>
+          </li>
+        <% else %>
+          <li style="margin-right: 5px">
+            <%= link_to "Register", new_user_registration_path ,class: "btn btn-warning btn-small"%>
+          </li>
+          <li>
+            <%= link_to "Log in", new_user_session_path ,class: "btn btn-primary btn-small"%>
+          </li>
+        <% end %>
+      </ul>
+
+    </div>
+  </nav>
+  <% if flash[:error] %>
+    <div id="error">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+  <%= yield %>
+
+  </body>
+</html>

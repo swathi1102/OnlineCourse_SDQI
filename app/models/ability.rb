@@ -8,13 +8,14 @@ class Ability
     elsif user.member?
       can :read, Course
       can :create, Course
+      can :manage, Course
       can :update, Course do |course|
         course.try(:user) == user
       end
       can :destroy, Course do |course|
         course.try(:user) == user
       end
-    else
+    elsif user.student?
       can :read, Course
     end
   end

@@ -13,3 +13,10 @@ User.create(email: "member@ait.asia",
             password: "member123",
             password_confirmation: "member123",
             role: @member)
+
+# Student
+User.create(email: "student@ait.asia",
+            username: "student",
+            password: "student123",
+            password_confirmation: "student123",
+            role: @student)

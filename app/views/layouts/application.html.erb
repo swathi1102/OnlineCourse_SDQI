@@ -10,41 +10,34 @@
 
   <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-    <a class="navbar-brand" href="/" id="navbarColor02" >Online Course</a>
-    <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">-->
-      <!--<span class="navbar-toggler-icon"></span>-->
-    <!--</button>-->
 
-    <div class="collapse navbar-collapse" id="navbarColor02">
-      <ul class="nav navbar-nav navbar-left" >
-
-
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+      <a class="navbar-brand" href="/">Online Course</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navbarNavDropdown" class="navbar-collapse collapse">
+        <ul class="navbar-nav mr-auto">
         <% if user_signed_in? and current_user.admin? %>
-          <li class="nav-item">
-            <a class="nav-link" href="/admin">Admin Dashboard</a>
-          </li>
-        <% end %>
-      </ul>
-      <ul class="nav navbar-nav navbar-right" >
-        <% if user_signed_in? %>
-          <li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/admin" target="_blank">Admin Dashboard</a>
+                    </li>
+          <% end %>
 
-            <%= link_to "Sign out", destroy_user_session_path, method: :delete ,class: "btn btn-danger btn-small"%>
-          </li>
-        <% else %>
-          <li style="margin-right: 5px">
-            <%= link_to "Register", new_user_registration_path ,class: "btn btn-warning btn-small"%>
-          </li>
-          <li>
-            <%= link_to "Log in", new_user_session_path ,class: "btn btn-primary btn-small"%>
-          </li>
-        <% end %>
-      </ul>
+        </ul>
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-small navbar-btn" %>
+          <% else %>
+          <%= link_to "Register", new_user_registration_path, class: "btn btn-warning btn-small navbar-btn" ,style:"margin-right: 5px;"%>
+          <%= link_to "Log in", new_user_session_path, class: "btn btn-success btn-small navbar-btn" %>
+          <% end %>
 
-    </div>
-  </nav>
-  <% if flash[:error] %>
+        </ul>
+      </div>
+    </nav>
+
+    <% if flash[:error] %>
     <div id="error">
       <%= flash[:error] %>
     </div>

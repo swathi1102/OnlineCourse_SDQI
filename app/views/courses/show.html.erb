@@ -1,9 +1,9 @@
 <div class="container" style="margin-top: 30px">
-  <div class="panel panel-info">
-    <div class="panel-heading">
+  <div class="card">
+    <div class="card-header">
       <h3>Course Information</h3>
     </div>
-    <div class="panel-body">
+    <div class="card-body">
       <p id="notice"><%= notice %></p>
 
       <p>
@@ -32,11 +32,12 @@
       </p>
     </div>
   </div>
-  <div class="row" style="text-align: center">
+
+  <div class="row" style="margin-top: 10px;">
     <div class="btn-group" role="group" aria-label="Basic example" style="margin-left: 15px">
-      <%= link_to 'Edit', edit_course_path(@course) ,class: "btn btn-primary"%>
-      <%= link_to "Print Course Information (PDF)", course_path(@course, format: 'pdf'),class: "btn btn-primary"%>
-      <%= link_to 'Back', courses_path ,class: "btn btn-primary"%>
+      <%= link_to 'Edit', edit_course_path(@course) ,class: "btn btn-outline-info"%>
+      <%= link_to "Print Course Information (PDF)", course_path(@course, format: 'pdf'),class: "btn btn-outline-info"%>
+      <%= link_to 'Back', courses_path ,class: "btn btn-outline-info"%>
     </div>
   </div>
 </div>

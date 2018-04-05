@@ -20,4 +20,8 @@ class User < ApplicationRecord
     self.role.name == "Member" if !self.role.blank?
   end
 
+  def student?
+    self.role.name == "Student" if !self.role.blank?
+  end
+
 end

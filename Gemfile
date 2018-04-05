@@ -42,7 +42,7 @@ gem 'prawn'
 gem 'prawn-table'
 gem 'responders'
 # Bootstrap
-gem 'bootstrap-sass', '~> 3.3.7'
+gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 # Admin Dashboard

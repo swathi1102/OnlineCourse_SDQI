@@ -5,35 +5,85 @@
 
       <ul>
       <% course.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="form-group row">
-    <%= form.label :category_id , class: "col-2 col-form-label"%>
-    <div class="col-10"><%= form.collection_select :category_id, Category.all, :id, :name, {prompt: "Select a category"}, {class: "form-control"} %></div>
+    <%= form.label :category_id , class: "col-sm-2 col-form-label"%>
+    <div class="col-sm-10"><%= form.collection_select :category_id, Category.all, :id, :name, {prompt: "Select a category"}, {class: "form-control"} %></div>
   </div>
 
   <div class="form-group row">
-    <%= form.label :title , class: "col-2 col-form-label"%>
-    <div class="col-10"><%= form.text_field :title, id: :course_title ,class: "form-control"%></div>
+    <%= form.label :title , class: "col-sm-2 col-form-label"%>
+    <div class="col-sm-10"><%= form.text_field :title, id: :course_title , placeholder: "ex. Agile Software Development",class: "form-control"%></div>
   </div>
 
   <div class="form-group row">
-    <%= form.label :objective , class: "col-2 col-form-label"%>
-    <div class="col-10"><%= form.text_area :objective, id: :course_objective ,class: "form-control"%></div>
+    <%= form.label :objective , class: "col-sm-2 col-form-label"%>
+    <div class="col-sm-10"><%= form.text_area :objective, id: :course_objective , placeholder: "ex. What you'll learn : 1. The key agile ideas 2. Agile principles, roles, practices, and artifacts.... ",class: "form-control"%></div>
   </div>
 
   <div class="form-group row">
-    <%= form.label :description , class: "col-2 col-form-label"%>
-    <div class="col-10"><%= form.text_area :description, id: :course_description ,class: "form-control"%></div>
+    <%= form.label :description , class: "col-sm-2 col-form-label"%>
+    <div class="col-sm-10"><%= form.text_area :description, id: :course_description , placeholder: "ex. About this course : Agile methodology has taken the software development.... ",class: "form-control"%></div>
   </div>
 
   <div class="form-group row">
-    <%= form.label :instructor , class: "col-2 col-form-label"%>
-    <div class="col-10"><%= form.text_field :instructor, id: :course_instructor ,class: "form-control"%></div>
+    <%= form.label :instructor , class: "col-sm-2 col-form-label"%>
+    <div class="col-sm-10"><%= form.text_field :instructor, id: :course_instructor , placeholder: "ex. Prof. Bertrand Meyer",class: "form-control"%></div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :length, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-4"><%= form.number_field :length, id: :course_length, in: 1..99, step: 1 , placeholder: "1-99", class: "form-control" %></div>
+    <div class="col-sm-6">week(s)</div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :effort, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-4"><%= form.number_field :effort, id: :course_effort, in: 1..99, step: 1, placeholder: "1-99", class: "form-control" %></div>
+    <div class="col-sm-6">hours per week</div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :price, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10"><%= form.text_field :price, id: :course_price, placeholder: "ex. FREE, Add a Verified Certificate for $150 USD", class: "form-control" %></div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :institution, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10"><%= form.text_field :institution, id: :course_institution, placeholder: "ex. Microsoft, UC San DiegoX, UC BerkeleyX", class: "form-control" %></div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :level, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10"><%= form.select :level, [['Introductory', 'Introductory'],
+                                                    ['Intermediate', 'Intermediate'],
+                                                    ['Advanced', 'Advanced']], {prompt: "Select level"}, {class: "form-control"} %></div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :languages, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10"><%= form.select :languages, [['Chinese', 'Chinese'],
+                                                        ['English', 'English'],
+                                                        ['Japanese', 'Japanese'],
+                                                        ['Thai', 'Thai']], {prompt: "Select level"}, {class: "form-control"} %></div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :video_transcript, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10"><%= form.select :videots, [['Chinese', 'Chinese'],
+                                                        ['English', 'English'],
+                                                        ['Japanese', 'Japanese'],
+                                                        ['Thai', 'Thai']], {prompt: "Select level"}, {class: "form-control"} %></div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :prerequisites, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10"><%= form.text_area :prerequisites, id: :course_prerequisites, placeholder: "ex. None, Programming.... ", class: "form-control" %></div>
   </div>
 
   <div class="btn-group" role="group" aria-label="Basic example">

@@ -1,4 +1,4 @@
-# Categories
+# Categories Data
 Category.create([{name: 'Architecture'},
                  { name: 'Art & Culture'},
                  { name: 'Biology & Life Sciences'},

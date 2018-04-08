@@ -7,8 +7,8 @@
       <p id="notice"><%= notice %></p>
 
       <p>
-        <strong>Course ID:</strong>
-        <%= @course.id %>
+        <strong>Category:</strong>
+        <%= @course.category.name %>
       </p>
 
       <p>
@@ -30,6 +30,30 @@
         <strong>Instructor:</strong>
         <%= @course.instructor %>
       </p>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="list-group list-cust">
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Length: </strong><%= @course.length %></li>
+              <li class="list-group-item"><strong>Effort: </strong><%= @course.effort %></li>
+              <li class="list-group-item"><strong>Price: </strong><%= @course.price %></li>
+              <li class="list-group-item"><strong>Institution: </strong><%= @course.institution %></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="list-group list-cust">
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Level: </strong><%= @course.level %></li>
+              <li class="list-group-item"><strong>Languages: </strong><%= @course.languages %></li>
+              <li class="list-group-item"><strong>Video Transcripts: </strong><%= @course.videots %></li>
+              <li class="list-group-item"><strong>Prerequisites: </strong><%= @course.prerequisites %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

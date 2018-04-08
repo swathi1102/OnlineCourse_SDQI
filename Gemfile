@@ -41,6 +41,11 @@ gem 'cancancan'
 gem 'prawn'
 gem 'prawn-table'
 gem 'responders'
+# Nested Form
+gem "cocoon"
+# Add pdf/image
+gem "paperclip", "~> 6.0.0"
+
 # Bootstrap
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'

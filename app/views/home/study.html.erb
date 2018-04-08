@@ -1,6 +1,23 @@
 <script src="http://cdnapi.kaltura.com/p/2387541/sp/238754100/embedIframeJs/uiconf_id/8704822/partner_id/2387541"></script>
 <br>
 <div class="container">
+  <div class="row">
+  <% @courses.each do |course| %>
+    <div class="col-sm-4">
+    <div class="card" style="width: 320px; margin-bottom: 20px;">
+      <div class="card-img-top" style="margin:10px 0px 0px 10px"><%= image_tag(course.image.url(:medium))%></div>
+      <div class="card-body">
+        <h5 class="card-title"><%= course.title %></h5>
+        <p class="card-text"><%= truncate(course.description, :length => 100)%></p>
+        <%= link_to 'Read More...', course ,class: "btn btn-outline-secondary"%>
+      </div>
+    </div>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+<div class="container">
   <div class="card">
     <div class="card-header"> ruby on rails </div>
     <div class="card-body">

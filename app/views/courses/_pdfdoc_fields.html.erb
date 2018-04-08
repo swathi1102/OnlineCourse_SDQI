@@ -1,0 +1,9 @@
+<div class="nested-fields">
+  <div class="field", style="margin-bottom: 10px">
+    <%= form.label :pdf_name %>
+    <%= form.file_field :name ,label: false, class: "form-control-file" , placeholder: "Enter pdf name"%>
+
+    <%= link_to_remove_association "Remove pdf", form, class:"btn btn-danger"%>
+    <hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);" >
+  </div>
+</div>

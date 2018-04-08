@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
+  get 'home/study'
   root to: "home#index"
   resources :courses
   devise_for :users

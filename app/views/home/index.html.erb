@@ -6,5 +6,13 @@
     <% end %>
     <h3>Welcome To Online Course</h3>
   </div>
-  <%= link_to 'Manage Course', courses_path ,class: "btn btn-primary btn-lg btn-block"%>
+  <% if user_signed_in? %>
+    <% if current_user.student? == false %>
+      <%= link_to 'Manage Course', courses_path ,class: "btn btn-primary btn-lg btn-block"%>
+      <%= link_to 'Study Course', home_study_path ,class: "btn btn-primary btn-lg btn-block"%>
+    <%else%>
+      <%= link_to 'Study Course', home_study_path ,class: "btn btn-primary btn-lg btn-block"%>
+    <%end%>
+  <% end %>
 </div>
+

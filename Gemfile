@@ -48,11 +48,12 @@ gem "paperclip", "~> 6.0.0"
 
 # Bootstrap
 gem 'bootstrap', '~> 4.0.0'
-gem 'jquery-rails'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 # Font Awesome
 gem 'font-awesome-sass'
-
+# jquery
+gem 'jquery-rails'
+gem 'jquery-tokeninput-rails'
 
 # Admin Dashboard
 gem 'rails_admin', '~> 1.3'

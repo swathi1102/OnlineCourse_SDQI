@@ -8,7 +8,4 @@ class Course < ApplicationRecord
   has_many :pdfdocs, inverse_of: :course
   accepts_nested_attributes_for :pdfdocs, reject_if: :all_blank, allow_destroy: true
 
-  # has_attached_file :document, styles: { thumbnail: "60x60#" }
-  # validates_attachment :document, content_type: { content_type: "application/pdf" }
-  # validates_something_else # Other validations that conflict with Paperclip's
 end

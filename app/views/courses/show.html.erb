@@ -62,7 +62,7 @@
         <strong>Pdf File:</strong>
       <ul>
         <% @course.pdfdocs.each do |pdf| %>
-          <li><%= pdf.name.to_s %></li>
+          <li><%= link_to pdf.name.to_s, pdf.document.url , target: :_blank%></li>
         <% end %>
       </ul>
       </p>
@@ -83,6 +83,7 @@
       <div class="btn-group" role="group" aria-label="Basic example" style="margin-left: 15px">
         <%= link_to 'Edit', edit_course_path(@course), class: "btn btn-outline-info" %>
         <%= link_to "Print Course Information (PDF)", course_path(@course, format: 'pdf'), class: "btn btn-outline-info" %>
+        <%= link_to 'Study Course', home_study_path, class: "btn btn-outline-info" %>
         <%= link_to 'Back', courses_path, class: "btn btn-outline-info" %>
       </div>
     </div>

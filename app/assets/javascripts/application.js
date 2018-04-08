@@ -15,5 +15,6 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require rails-ujs
+//= require jquery.tokeninput
 //= require turbolinks
 //= require_tree .

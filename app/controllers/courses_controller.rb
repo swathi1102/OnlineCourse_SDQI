@@ -90,6 +90,6 @@ class CoursesController < ApplicationController
     def course_params
       params.require(:course).permit(:title, :objective, :description, :instructor, :category_id, :image,
                                      :length, :effort, :price, :institution, :level, :languages, :videots, :prerequisites,
-                                     pdfdocs_attributes: [:id, :name, :_destroy])
+                                     pdfdocs_attributes: [:id, :name, :document, :_destroy])
     end
 end

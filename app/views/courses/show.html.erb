@@ -1,7 +1,15 @@
 <div class="container" style="margin-top: 30px">
   <div class="card">
     <div class="card-header">
-      <h3>Course Information</h3>
+      <div class="row">
+        <div class="col-sm-10"><h3>Course Information</h3></div>
+        <% if current_user.student? == true %>
+        <div class="col-sm-2"><%= link_to 'Enroll Now',{:controller => "enrollment", :action => "new", :course_id => @course.id }, class: "btn btn-outline-success"%></div>
+          <%# if @enrollment.user_id == current_user.id %>
+<!--          <div class="col-sm-2"><button type="button" class="btn btn-outline-success" disabled>Enrolled</button></div>-->
+          <%#end%>
+        <% end %>
+      </div>
     </div>
     <div class="card-body">
       <p id="notice"><%= notice %></p>
@@ -91,4 +99,6 @@
 
 
 </div>
+
+
 

@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   belongs_to :role
   has_many :courses
+  has_many :enrollments
+  has_many :courses, through: :enrollments
 
   before_validation :assign_role
   def assign_role

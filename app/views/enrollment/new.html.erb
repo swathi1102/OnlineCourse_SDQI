@@ -1,0 +1,45 @@
+<%= form_for @enrollment, url: enrollment_create_path do |f| %>
+  <% if @enrollment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@enrollment.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+        <% @enrollment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container" style="margin-top: 30px;">
+    <div class="card">
+      <div class="card-header"><h3>Enrollment Detail</h3></div>
+      <div class="card-body">
+        <div class="form-group row">
+          <%= f.label :semester, class: "col-sm-2 col-form-label" %>
+          <%= f.select :semester, [['1', '1'],
+                                   ['2', '2'],
+                                   ['3', '3'],
+                                   ['4', '4']], {prompt: "Select Semester"}, {class: "col-sm-10 form-control"} %>
+        </div>
+        <div class="form-group row">
+          <%= f.label :year, class: "col-sm-2 col-form-label" %>
+          <%= f.select :year, [['2018', '2018'],
+                               ['2019', '2019'],
+                               ['2020', '2020'],
+                               ['2021', '2021']], {prompt: "Select Year"}, {class: "col-sm-10 form-control"} %>
+        </div>
+
+        <div class="form-group">
+          <%= f.hidden_field :course_id, value: @course.id %>
+        </div>
+
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <%= f.submit "Regis", class: "btn btn-outline-success" %>
+          <%= link_to 'Back', home_study_path, class: "btn btn-info" %>
+        </div>
+
+
+      </div>
+<% end %>
+</div>
+</div>

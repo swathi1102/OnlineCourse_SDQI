@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20180409081602) do
-=======
+
+# ActiveRecord::Schema.define(version: 20180409081602) do
+
 ActiveRecord::Schema.define(version: 20180409094109) do
->>>>>>> 84fcba015452ef98c31150c51edc347000c49555
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20180409094109) do
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
-<<<<<<< HEAD
+
   create_table "enrollments", force: :cascade do |t|
     t.string "grade"
     t.string "semester"
@@ -61,13 +61,13 @@ ActiveRecord::Schema.define(version: 20180409094109) do
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_enrollments_on_course_id"
     t.index ["user_id"], name: "index_enrollments_on_user_id"
-=======
+
   create_table "links", force: :cascade do |t|
     t.string "title"
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
->>>>>>> 84fcba015452ef98c31150c51edc347000c49555
+
   end
 
   create_table "pdfdocs", force: :cascade do |t|

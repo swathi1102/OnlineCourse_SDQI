@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20180409094109) do
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_enrollments_on_course_id"
     t.index ["user_id"], name: "index_enrollments_on_user_id"
+  end
 
   create_table "links", force: :cascade do |t|
     t.string "title"

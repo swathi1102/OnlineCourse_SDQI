@@ -1,11 +1,10 @@
 <div class="nested-fields">
   <div class="form-group row", style="margin-bottom: 10px">
-    <div class="col-sm-2 col-form-label"><%= form.label :pdf_name %></div>
-    <div class="col-sm-4 "><%= form.text_field :name ,class: "form-control", placeholder: "Enter pdf name"%></div>
-    <div class="col-sm-6 "><%= form.file_field :document ,form_name: 'form'%></div>
+    <div class="col-sm-2 col-form-label"><%= f.label :pdf_name %></div>
+    <div class="col-sm-4 "><%= f.text_field :name ,class: "form-control", placeholder: "Enter pdf name"%></div>
+    <div class="col-sm-6 "><%= f.file_field :document ,class: "form-control-file"%></div>
 
+    <%= link_to_remove_association "Remove pdf", f, class:"btn btn-danger"%>
   </div>
-    <%= link_to_remove_association "Remove pdf", form,form_name: 'form', class:"btn btn-danger"%>
     <hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);" >
-  </div>
 </div>

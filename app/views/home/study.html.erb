@@ -14,7 +14,9 @@
   <% @courses.each do |course| %>
     <div class="col-sm-4">
     <div class="card" style="width: 320px; margin-bottom: 20px;">
+      <%if course.image.present? %>
       <div class="card-img-top" style="margin:10px 0px 0px 10px"><%= image_tag(course.image.url(:medium))%></div>
+      <%end%>
       <div class="card-body">
         <h5 class="card-title"><%= course.title %></h5>
         <p class="card-text"><%= truncate(course.description, :length => 100)%></p>

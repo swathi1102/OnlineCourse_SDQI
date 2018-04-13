@@ -14,8 +14,9 @@
     <div class="card-body">
       <p id="notice"><%= notice %></p>
 
+      <%if @course.image.present? %>
       <%= image_tag(@course.image.url(:medium))%>
-
+      <%end%>
       <p>
         <strong>Category:</strong>
         <%= @course.category.name %>

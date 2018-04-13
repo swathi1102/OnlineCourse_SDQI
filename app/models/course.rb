@@ -10,4 +10,6 @@ class Course < ApplicationRecord
   has_many :pdfdocs, inverse_of: :course
   accepts_nested_attributes_for :pdfdocs, reject_if: :all_blank, allow_destroy: true
 
+  validates_presence_of :title
+
 end

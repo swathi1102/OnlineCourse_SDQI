@@ -3,13 +3,18 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
+  # Home Page
+  root to: "home#index"
   get 'home/study'
+
+  # Enrollment Page
   get 'enrollment/new'
   post 'enrollment/create'
   get 'enrollment/index'
   get 'enrollment/grade'
   post 'enrollment/grade'
-  root to: "home#index"
+
+  # Manage Courses
   resources :courses
   devise_for :users
 

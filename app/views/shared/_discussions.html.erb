@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div id="blog" class="row"> 
+    <div class="col-md-10 blogShort">  
+      <h3 class="lead" align= "center">Latest Discussions</h3>
+        <% @discussions.each do |discussion| %>
+          <div class="col-sm">
+            <div class="col-sm-1">
+              <%= gravatar_image_tag(discussion.user.email, class:'border-radius-50', size: 48, alt: discussion.user.username) %> 
+            </div> 
+            <div class="col-sm-8">
+              <%= link_to discussion do %>
+                <h3 class="title"><%= discussion.title %></h3>
+              <% end %>
+              <div class="container">
+                <%= truncate(strip_markdown(discussion.content), length: 140) %>
+                <p><em><small>Posted <%= time_ago_in_words(discussion.created_at) %> ago in
+                <% if discussion.course %>
+                  <%= link_to discussion.course.title, discussion.course %>
+                <% end %>
+                by <%= discussion.user.username %>
+                </small></em></p>
+              </div>
+            </div>
+
+            <% if discussion_author(discussion) || current_user.admin? || current_user.member? %>
+              <div class="col-sm-5 ">
+                <%= link_to 'Edit', edit_discussion_path(discussion), class:'button' %>
+                <%= link_to 'Delete', discussion, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>

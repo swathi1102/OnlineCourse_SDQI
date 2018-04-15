@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
   get 'enrollment/enroll'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -13,6 +15,9 @@ Rails.application.routes.draw do
   resources :courses
   devise_for :users
 
+  resources :discussions do
+    resources :replies
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

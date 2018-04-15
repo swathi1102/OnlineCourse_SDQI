@@ -1,0 +1,16 @@
+<div class="column is-3 is-offset-1">
+  <h3 class="title is-5 has-text-grey-light">Courses</h3>
+
+  <ul class="list">
+    <% @courses.each do |c| %>
+    <li><%= link_to c.title, c %></li>
+    <% end %>
+  </ul>
+
+  <br/>
+
+  <% if current_user.admin? || current_user.member? %>
+    <%= link_to 'New Course', new_course_path, class:'button is-info' %>
+  <% end %>
+
+</div>

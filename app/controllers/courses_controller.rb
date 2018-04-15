@@ -14,6 +14,7 @@ class CoursesController < ApplicationController
         send_data pdf.render, filename: 'Courses.pdf', type: 'application/pdf', disposition: 'inline'
       end
     end
+    @discussions = Discussion.all.order('created_at desc')
   end
 
   # GET /courses/1
@@ -21,7 +22,7 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
     @enrollment = Enrollment.where(:course_id => @course.id)
-
+    @discussions = Discussion.where(:course_id => @course.id)
     respond_to do |format|
       format.html
       format.pdf do
@@ -48,7 +49,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
+        format.html { redirect_to courses_path, notice: 'Course was successfully created.' }
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }
@@ -63,7 +64,7 @@ class CoursesController < ApplicationController
     @course.user = current_user
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
+        format.html { redirect_to courses_path, notice: 'Course was successfully updated.' }
         format.json { render :show, status: :ok, location: @course }
       else
         format.html { render :edit }

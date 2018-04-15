@@ -7,7 +7,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://cdnapi.kaltura.com/p/2387541/sp/238754100/embedIframeJs/uiconf_id/8704822/partner_id/2387541"></script>
   </head>
 
@@ -30,10 +32,13 @@
         </ul>
         <ul class="navbar-nav">
           <% if user_signed_in? %>
-          <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-small navbar-btn" %>
+            <%= link_to 'New Discussion', new_discussion_path, class:"btn btn-danger  btn-small navbar-btn" %>
+            <%= link_to 'My Courses', '#', class:"btn btn-danger btn-small navbar-btn" %>
+            <%= link_to 'Edit Profile', edit_user_registration_path, class:"btn btn-danger btn-small navbar-btn" %>
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-small navbar-btn"  %>
           <% else %>
-          <%= link_to "Register", new_user_registration_path, class: "btn btn-warning btn-small navbar-btn" ,style:"margin-right: 5px;"%>
-          <%= link_to "Log in", new_user_session_path, class: "btn btn-success btn-small navbar-btn" %>
+            <%= link_to "Register", new_user_registration_path, class: "btn btn-warning btn-small navbar-btn" ,style:"margin-right: 5px;"%>
+            <%= link_to "Log in", new_user_session_path, class: "btn btn-success btn-small navbar-btn"  %>
           <% end %>
 
         </ul>

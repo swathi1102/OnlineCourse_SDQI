@@ -10,8 +10,11 @@ class User < ApplicationRecord
   has_many :courses
   has_many :enrollments
   has_many :courses, through: :enrollments
+  has_many :discussions, dependent: :destroy
+  has_many :courses, through: :discussions
 
   before_validation :assign_role
+
   def assign_role
     self.role = Role.find_by_name("Member") if self.role.nil?
   end

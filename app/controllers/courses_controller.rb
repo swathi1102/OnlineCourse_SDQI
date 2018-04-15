@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :except => [:index, :show]
+  before_action :course_owner, only: [:destroy, :edit, :update]
   load_and_authorize_resource
 
   # GET /courses
@@ -83,6 +84,13 @@ class CoursesController < ApplicationController
   end
 
   private
+    # Check Course owner
+    def course_owner
+      unless current_user.id == @course.user_id || current_user.admin?
+        flash[:error] = "You don't have authorization!"
+        redirect_to @course
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_course
       @course = Course.find(params[:id])

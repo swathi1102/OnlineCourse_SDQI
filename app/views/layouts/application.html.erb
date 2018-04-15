@@ -52,15 +52,6 @@
               <%= link_to 'My Courses', '#', class:"nav-link" %>
             </li>
         <% end %>
-              <%= link_to 'My Courses', '#', class: "nav-link" %>
-            </li>
-        <% end %>
-        <li class="nav-item">
-          <%= link_to 'New Discussion', new_discussion_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Edit Profile', edit_user_registration_path, class: "nav-link" %>
-        </li>
         </ul>
         <ul class="navbar-nav">
           <% if user_signed_in? %>
@@ -69,7 +60,7 @@
 
           <% if user_signed_in? %>
               <%= link_to 'New Discussion', new_discussion_path, class:"btn btn-success btn-small navbar-btn" %>
-              <%= link_to 'Edit Profile', edit_user_registration_path, class:"btn btn-success btn-small navbar-btn" %>
+              <%= link_to 'Edit Profile', edit_user_registration_path, class:"btn btn-success btn-small navbar-btn" ,style: "margin: 0px 5px 0px 5px;"%>
               <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-small navbar-btn" %>
           <% else %>
             <%= link_to "Register", new_user_registration_path, class: "btn btn-warning btn-small navbar-btn" ,style:"margin-right: 5px;"%>

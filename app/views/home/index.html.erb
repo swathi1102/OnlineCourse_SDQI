@@ -1,18 +1,124 @@
+<!--start slide show-->
+  <div id="demo" class="carousel slide" data-ride="carousel">
 
-<div class="container">
-  <div class="jumbotron" style="margin-top: 30px;">
-    <% if user_signed_in? %>
-    <h1>Hello <%= current_user.username %> :)</h1>
-    <% end %>
-    <h3>Welcome To Online Course</h3>
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+      <li data-target="#demo" data-slide-to="3"></li>
+      <li data-target="#demo" data-slide-to="4"></li>
+      <li data-target="#demo" data-slide-to="5"></li>
+    </ul>
+
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag('banner5.jpg', {:width => '1900', :height => '1080', :alt => "study1"}) %>
+        <div class="carousel-caption d-none d-md-block">
+          <% if user_signed_in? %>
+            <% if current_user.student? == false %>
+              <%= link_to 'Manage Course', courses_path, class: "btn btn-success btn-lg" %>
+              <%= link_to 'Courses', home_study_path, class: "btn btn-info btn-lg" %>
+              <br>
+            <% else %>
+              <%= link_to 'Courses', home_study_path, class: "btn btn-info btn-lg" %>
+              <h3 id="slide-text">Please, Select the courses that you like :)</h3>
+            <% end %>
+          <% end %>
+          <br>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag('banner6.jpeg', {:width => '1900', :height => '1080', :alt => "study2"}) %>
+        <div class="carousel-caption d-none d-md-block">
+          <% if user_signed_in? %>
+            <% if current_user.student? == false %>
+              <%= link_to 'Manage Course', courses_path, class: "btn btn-success btn-lg" %>
+              <%= link_to 'Courses', home_study_path, class: "btn btn-info btn-lg" %>
+              <br>
+            <% else %>
+              <%= link_to 'Courses', home_study_path, class: "btn btn-info btn-lg" %>
+              <h3 id="slide-text">Please, Select the courses that you like :)</h3>
+            <% end %>
+          <% end %>
+          <br>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag('banner1.png', {:width => '1900', :height => '1080', :alt => "study3"}) %>
+        <div class="carousel-caption d-none d-md-block">
+          <% if user_signed_in? %>
+            <% if current_user.student? == false %>
+              <%= link_to 'Manage Course', courses_path, class: "btn btn-success btn-lg" %>
+              <%= link_to 'Courses', home_study_path, class: "btn btn-info btn-lg" %>
+              <br>
+            <% else %>
+              <%= link_to 'Courses', home_study_path, class: "btn btn-info btn-lg" %>
+              <h3 id="slide-text">Please, Select the courses that you like :)</h3>
+            <% end %>
+          <% end %>
+          <br>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag('banner7.jpg', {:width => '1900', :height => '1080', :alt => "study4"}) %>
+        <div class="carousel-caption d-none d-md-block">
+          <% if user_signed_in? %>
+            <% if current_user.student? == false %>
+              <%= link_to 'Manage Course', courses_path, class: "btn btn-success btn-lg" %>
+              <%= link_to 'Courses', home_study_path, class: "btn btn-info btn-lg" %>
+              <br>
+            <% else %>
+              <%= link_to 'Courses', home_study_path, class: "btn btn-info btn-lg" %>
+              <h3 id="slide-text">Please, Select the courses that you like :)</h3>
+            <% end %>
+          <% end %>
+          <br>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag('banner2.jpg', {:width => '1900', :height => '1080', :alt => "study5"}) %>
+        <div class="carousel-caption d-none d-md-block">
+          <% if user_signed_in? %>
+            <% if current_user.student? == false %>
+              <%= link_to 'Manage Course', courses_path, class: "btn btn-success btn-lg" %>
+              <%= link_to 'Courses', home_study_path, class: "btn btn-info btn-lg" %>
+              <br>
+            <% else %>
+              <%= link_to 'Courses', home_study_path, class: "btn btn-info btn-lg" %>
+              <h3 id="slide-text">Please, Select the courses that you like :)</h3>
+            <% end %>
+          <% end %>
+          <br>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag('banner4.jpeg', {:width => '1900', :height => '1080', :alt => "study6"}) %>
+        <div class="carousel-caption d-none d-md-block">
+          <% if user_signed_in? %>
+            <% if current_user.student? == false %>
+              <%= link_to 'Manage Course', courses_path, class: "btn btn-success btn-lg" %>
+              <%= link_to 'Courses', home_study_path, class: "btn btn-info btn-lg" %>
+              <br>
+            <% else %>
+              <%= link_to 'Courses', home_study_path, class: "btn btn-info btn-lg" %>
+              <h3 id="slide-text">Please, Select the courses that you like :)</h3>
+            <% end %>
+          <% end %>
+          <br>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
   </div>
-  <% if user_signed_in? %>
-    <% if current_user.student? == false %>
-      <%= link_to 'Manage Course', courses_path ,class: "btn btn-primary btn-lg btn-block"%>
-      <%= link_to 'Courses', home_study_path ,class: "btn btn-primary btn-lg btn-block"%>
-    <%else%>
-      <%= link_to 'Courses', home_study_path ,class: "btn btn-primary btn-lg btn-block"%>
-    <%end%>
-  <% end %>
-</div>
+<!--end slide show-->
+
 

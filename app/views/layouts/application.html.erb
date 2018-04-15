@@ -30,6 +30,10 @@
         </ul>
         <ul class="navbar-nav">
           <% if user_signed_in? %>
+            <h4 id="login-username" class="text-light">Hello <%= current_user.username %></h4>
+          <% end %>
+
+          <% if user_signed_in? %>
           <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-small navbar-btn" %>
           <% else %>
           <%= link_to "Register", new_user_registration_path, class: "btn btn-warning btn-small navbar-btn" ,style:"margin-right: 5px;"%>

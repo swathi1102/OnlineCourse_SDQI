@@ -3,6 +3,33 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
+
+<!--First Name -->
+<div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+
+<!-- Last Name -->
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+<!-- Username -->
+  <div class = "field">
+    <%= f.label :username %> 
+    <%= current_user.username %>
+  </div>
+
+<!-- DOB -->
+
+  <div class = "field">
+    <%= f.label :date_of_birth %>
+    <%= f.date_select :date_of_birth, :start_year => 1900 %>
+  </div>
+
+<!-- email -->
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -12,6 +39,7 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
+<!-- Password -->
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
@@ -31,13 +59,32 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+<!-- gender -->
+  <div class="field">
+    <%= f.label :Male %> <%= radio_button("user", "gender", "Male") %>
+    <%= f.label :Female %> <%= radio_button("user","gender", "Female") %>
+  </div>
+
+<!-- fos -->
+  <div class="field">
+    <%= f.label :field_of_study %><br />
+    <%= f.text_field :fos %>
+  </div>
+
+<!-- Contact -->
+  <div class="field">
+    <%= f.label :contact %><br />
+    <%= f.text_field :contact, autofocus: true%>
+  </div>
+
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>Delete my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>

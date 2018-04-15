@@ -21,8 +21,14 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <div class ="navbar-nav pull-center">
+        <%= form_tag(courses_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Courses" %>
+          <%= submit_tag "Search", :name => nil %>
+        <% end %>
+      </div>
       <div id="navbarNavDropdown" class="navbar-collapse collapse">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto pull-right">
         <% if user_signed_in? and current_user.admin? %>
             <li class="nav-item active">
               <a class="nav-link" href="/admin" target="_blank">Admin Dashboard</a>
@@ -40,28 +46,24 @@
             <li class="nav-item">
                 <%= link_to 'Courses', home_study_path ,class: "nav-link"%>
             </li>
-        <%else%>
+        <%elsif user_signed_in? and current_user.student? == true %>
             <li class="nav-item">
               <%= link_to 'Courses', home_study_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to 'My Courses', '#', class:"btn btn-danger btn-small navbar-btn" %>
+              <%= link_to 'My Courses', '#', class:"nav-link" %>
             </li>
         <% end %>
-        <li class="nav-item">
-          <%= link_to 'New Discussion', new_discussion_path, class:"btn btn-danger  btn-small navbar-btn" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Edit Profile', edit_user_registration_path, class:"btn btn-danger btn-small navbar-btn" %>            
-        </li>
         </ul>
         <ul class="navbar-nav">
           <% if user_signed_in? %>
-            <h4 id="login-username" class="text-light">Hello <%= current_user.username %></h4>
+            <h4 id="login-username" class="text-light center">Hello <%= current_user.username %></h4>
           <% end %>
 
           <% if user_signed_in? %>
-            <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-small navbar-btn" %>
+              <%= link_to 'New Discussion', new_discussion_path, class:"btn btn-success btn-small navbar-btn" %>
+              <%= link_to 'Edit Profile', edit_user_registration_path, class:"btn btn-success btn-small navbar-btn" %>
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-small navbar-btn" %>
           <% else %>
             <%= link_to "Register", new_user_registration_path, class: "btn btn-warning btn-small navbar-btn" ,style:"margin-right: 5px;"%>
             <%= link_to "Log in", new_user_session_path, class: "btn btn-success btn-small navbar-btn"  %>

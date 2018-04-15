@@ -19,6 +19,9 @@ class Course < ApplicationRecord
     title_changed?
   end
 
+  def self.search(search)
+    where("title ILIKE ? OR instructor ILIKE ? ", "%#{search}%", "%#{search}%").all.order('LOWER(title)')
+  end
 
 
   validates_presence_of :title

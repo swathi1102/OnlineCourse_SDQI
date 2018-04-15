@@ -16,7 +16,7 @@ class User < ApplicationRecord
   before_validation :assign_role
 
   def assign_role
-    self.role = Role.find_by_name("Member") if self.role.nil?
+    self.role = Role.find_by_name("Student") if self.role.nil?
   end
 
   def admin?
@@ -30,5 +30,5 @@ class User < ApplicationRecord
   def student?
     self.role.name == "Student" if !self.role.blank?
   end
-
+  
 end

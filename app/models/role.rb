@@ -7,7 +7,7 @@ belongs_to :resource,
            :optional => true
 
 
-validates :resource_type,
+validates :resource,
           :inclusion => { :in => Rolify.resource_types },
           :allow_nil => true
 

@@ -1,13 +1,13 @@
 <div class="container-fluid">
   <div id="blog" class="row"> 
-    <div class="col-md-10 blogShort">  
+    <div class="col-md-10 ">  
       <h3 class="lead" align= "center">Latest Discussions</h3>
         <% @discussions.each do |discussion| %>
           <div class="col-sm">
             <div class="col-sm-1">
               <%= gravatar_image_tag(discussion.user.email, class:'border-radius-50', size: 48, alt: discussion.user.username) %> 
             </div> 
-            <div class="col-sm-8">
+            <div class="col-md">
               <%= link_to discussion do %>
                 <h3 class="title"><%= discussion.title %></h3>
               <% end %>

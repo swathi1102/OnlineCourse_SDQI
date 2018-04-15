@@ -1,6 +1,6 @@
 class EnrollmentController < ApplicationController
   before_action :set_enrollment, only: [:show, :edit, :update, :destroy]
-
+  
   def index
     @enrollments = Enrollment.all
   end
@@ -11,12 +11,11 @@ class EnrollmentController < ApplicationController
 
   def new
     @course = Course.find(params[:course_id])
-    @enrollment = Enrollment.new
+    @enrollment = current_user.enrollments.build
   end
 
   def create
-    @enrollment = Enrollment.new(enroll_params)
-    @enrollment.user_id = current_user.id
+    @enrollment = current_user.enrollments.build(enroll_params)
 
     if @enrollment.save
       flash[:success] = "You enroll the course successfully!!"

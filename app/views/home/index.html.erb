@@ -14,7 +14,7 @@
     <!-- The slideshow -->
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <%= image_tag('banner5.jpg', {:width => '1900', :height => '1080', :alt => "study1"}) %>
+        <%= image_tag('banner5.jpg', {:width =>'1900' , :height => '1080', :alt => "study1", :crop => :fill}) %>
         <div class="carousel-caption d-none d-md-block">
           <% if user_signed_in? %>
             <% if current_user.student? == false %>
@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <%= image_tag('banner6.jpeg', {:width => '1900', :height => '1080', :alt => "study2"}) %>
+        <%= image_tag('banner6.jpeg', {:size => '1900x1080', :alt => "study2", :crop => :fill}) %>
         <div class="carousel-caption d-none d-md-block">
           <% if user_signed_in? %>
             <% if current_user.student? == false %>
@@ -46,7 +46,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <%= image_tag('banner1.png', {:width => '1900', :height => '1080', :alt => "study3"}) %>
+        <%= image_tag('banner1.png', {:width => '1900', :height => '1080', :alt => "study3", :crop => :fill}) %>
         <div class="carousel-caption d-none d-md-block">
           <% if user_signed_in? %>
             <% if current_user.student? == false %>
@@ -62,7 +62,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <%= image_tag('banner7.jpg', {:width => '1900', :height => '1080', :alt => "study4"}) %>
+        <%= image_tag('banner7.jpg', {:width => '1900', :height => '1080', :alt => "study4", :crop => :fill}) %>
         <div class="carousel-caption d-none d-md-block">
           <% if user_signed_in? %>
             <% if current_user.student? == false %>
@@ -78,7 +78,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <%= image_tag('banner2.jpg', {:width => '1900', :height => '1080', :alt => "study5"}) %>
+        <%= image_tag('banner2.jpg', {:width => '1900', :height => '1080', :alt => "study5",:crop => :fill}) %>
         <div class="carousel-caption d-none d-md-block">
           <% if user_signed_in? %>
             <% if current_user.student? == false %>
@@ -94,7 +94,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <%= image_tag('banner4.jpeg', {:width => '1900', :height => '1080', :alt => "study6"}) %>
+        <%= image_tag('banner4.jpeg', {:width => '1900', :height => '1080', :alt => "study6",:crop => :fill}) %>
         <div class="carousel-caption d-none d-md-block">
           <% if user_signed_in? %>
             <% if current_user.student? == false %>

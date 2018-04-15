@@ -82,13 +82,6 @@ ActiveRecord::Schema.define(version: 20180415144928) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
-  create_table "links", force: :cascade do |t|
-    t.string "title"
-    t.string "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "pdfdocs", force: :cascade do |t|
     t.string "name"
     t.bigint "course_id"

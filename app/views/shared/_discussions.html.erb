@@ -1,9 +1,9 @@
-<div class="container-fluid">
-  <div id="blog" class="row"> 
-    <div class="col-md-10 ">  
-      <h3 class="lead" align= "center">Latest Discussions</h3>
+<div class="card" style="margin-top: 10px">
+      <div id="blog" class="card-header">
+          <h3 class="lead" align= "center">Latest Discussions</h3>
+      </div>
         <% @discussions.each do |discussion| %>
-          <div class="col-sm">
+          <div class="card-body">
             <div class="col-sm-1">
               <%= gravatar_image_tag(discussion.user.email, class:'border-radius-50', size: 48, alt: discussion.user.username) %> 
             </div> 
@@ -22,14 +22,17 @@
               </div>
             </div>
 
-            <% if discussion_author(discussion) || current_user.admin? || current_user.member? %>
-              <div class="col-sm-5 ">
-                <%= link_to 'Edit', edit_discussion_path(discussion), class:'button' %>
-                <%= link_to 'Delete', discussion, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
+            <div class="row" style="margin-top: 10px;">
+              <div class="btn-group" role="group" aria-label="Basic example" style="margin-left: 15px">
+                <% if discussion_author(discussion) || current_user.admin? || current_user.member? %>
+                    <%= link_to 'Edit', edit_discussion_path(discussion), class: "btn btn-outline-warning" %>
+                    <%= link_to 'Delete', discussion, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+                <% end %>
               </div>
-            <% end %>
-          </div>
-        <% end %>
+            </div>
+
+        <hr style="height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);" >
     </div>
-  </div>
+  <% end %>
 </div>
+

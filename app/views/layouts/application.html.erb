@@ -52,6 +52,10 @@
               <%= link_to 'My Courses', '#', class:"nav-link" %>
             </li>
         <% end %>
+          <li class="nav-item">
+            <%= link_to 'Discussion Board', discussions_path, class:"nav-link"%>
+          </li>
+
         </ul>
         <ul class="navbar-nav">
           <% if user_signed_in? %>

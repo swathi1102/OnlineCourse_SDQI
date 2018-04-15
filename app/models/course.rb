@@ -9,7 +9,7 @@ class Course < ApplicationRecord
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
-  has_many :pdfdocs, inverse_of: :course
+  has_many :pdfdocs, inverse_of: :course, dependent: :nullify
   accepts_nested_attributes_for :pdfdocs, reject_if: :all_blank, allow_destroy: true
   resourcify
   extend FriendlyId

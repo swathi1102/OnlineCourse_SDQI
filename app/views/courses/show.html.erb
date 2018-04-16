@@ -5,7 +5,7 @@
         <div class="col-sm-10"><h3>Course Information</h3></div>
           <% if current_user.student? == true || user_signed_in? == false %>
              <% if @course.enrollments.exists?(:user_id => current_user.id) == true %>
-               <div class="col-sm-2"><button type="button" class="btn btn-outline-success" >Enrolled</button></div>
+               <div class="col-sm-2"><button type="button" class="btn btn-secondary disabled" >Enrolled</button></div>
              <% else %>
                <div class="col-sm-2"><%= link_to 'Enroll Now',{:controller => "enrollment", :action => "new", :course_id => @course.id }, class: "btn btn-outline-success"%></div>
              <% end %>

@@ -3,7 +3,7 @@
           <h3 class="lead" align= "center">Latest Discussions</h3>
       </div>
         <% @discussions.each do |discussion| %>
-          <div class="card-body">
+          <div class="card-body" style="padding-bottom: 0px;">
             <div class="col-sm-1">
               <%= gravatar_image_tag(discussion.user.email, class:'border-radius-50', size: 48, alt: discussion.user.username) %> 
             </div> 

@@ -70,7 +70,7 @@ class CoursesController < ApplicationController
   # PATCH/PUT /courses/1
   # PATCH/PUT /courses/1.json
   def update
-    @course.user = current_user
+    # @course.user = current_user
     respond_to do |format|
       if @course.update(course_params)
         format.html { redirect_to courses_path, notice: 'Course was successfully updated.' }
@@ -85,6 +85,7 @@ class CoursesController < ApplicationController
   # DELETE /courses/1
   # DELETE /courses/1.json
   def destroy
+    @course.user = current_user
     @course.destroy
     respond_to do |format|
       format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
@@ -92,11 +93,13 @@ class CoursesController < ApplicationController
     end
   end
 
+
+
   private
     # Check Course owner
     def course_owner
       unless current_user.id == @course.user_id || current_user.admin?
-        flash[:error] = "You don't have authorization!"
+        flash[:alert] = "You don't have authorization!"
         redirect_to @course
       end
     end

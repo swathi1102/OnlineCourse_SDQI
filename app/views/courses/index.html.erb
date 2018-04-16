@@ -17,6 +17,7 @@
     </tr>
   </thead>
 
+
   <tbody>
     <% @courses.each do |course| %>
       <tr>
@@ -25,7 +26,9 @@
         <td><%= course.instructor %></td>
         <td style="text-align: right;">
           <% if current_user.student? == false %>
-            <%= link_to 'Manage Student', enrollment_index_path ,class: "btn btn-outline-success btn-sm"%>
+            <% if current_user.id == course.user_id or current_user.admin? == true%>
+              <%= link_to 'Manage Student', enrollment_index_path(:c_id => course.id) ,class: "btn btn-outline-success btn-sm"%>
+            <%end%>
             <%= link_to 'Show', course ,class: "btn btn-outline-info btn-sm"%>
             <%= link_to 'Edit', edit_course_path(course) ,class: "btn btn-outline-warning btn-sm"%>
             <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-outline-danger btn-sm"%>

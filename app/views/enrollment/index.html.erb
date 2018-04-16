@@ -1,3 +1,4 @@
+
 <div class="container" style="margin-top: 30px;">
   <div class="row">
     <div class="col-sm-10">
@@ -7,8 +8,8 @@
   <table class="table table-hover">
     <thead class="bg-light">
     <tr>
-      <th>Course</th>
-      <th>Name</th>
+      <th>Course Name</th>
+      <th>Student Name</th>
       <th>Semester</th>
       <th>Year</th>
       <th>Grade</th>
@@ -16,17 +17,20 @@
     </tr>
     </thead>
 
+
     <tbody>
     <% @enrollments.each do |enrollment| %>
       <tr>
-        <td><%= enrollment.course_id %></td>
-        <td><%= enrollment.user_id %></td>
+        <%@course = Course.find(enrollment.course_id)
+          @user = User.find(enrollment.user_id)%>
+        <td><%= @course.title %></td>
+        <td><%= @user.username %></td>
         <td><%= enrollment.semester %></td>
         <td><%= enrollment.year %></td>
         <td><%= enrollment.grade %></td>
 
         <td>
-          <%#= link_to 'Grade', enrollment_grade_path(enrollment) ,class: "btn btn-outline-success btn-sm"%>
+          <%= link_to 'Grade', enrollment_grade_path(:id => enrollment.id) ,class: "btn btn-outline-success btn-sm"%>
         </td>
       </tr>
     <% end %>
@@ -35,6 +39,6 @@
 
   <br>
 
-    <%= link_to 'Back', root_path ,class: "btn btn-info"%>
+    <%= link_to 'Back', courses_path ,class: "btn btn-info"%>
 
 </div>

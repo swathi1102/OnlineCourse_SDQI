@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   post 'enrollment/create'
   get 'enrollment/index'
   get 'enrollment/grade'
-  post 'enrollment/grade'
+  get 'enrollment/update'
+  post 'enrollment/update'
+  patch 'enrollment/update'
+
 
   # Manage Courses
   resources :courses

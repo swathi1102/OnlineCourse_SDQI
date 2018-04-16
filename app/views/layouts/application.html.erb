@@ -81,12 +81,15 @@
         </ul>
       </div>
     </nav>
-
-    <% if flash[:error] %>
-    <div id="error">
-      <%= flash[:error] %>
-    </div>
+    <% if notice %>
+    <p class="alert alert-success" style="margin-bottom: 0px;"><%= notice %></p>
   <% end %>
+  <% if alert %>
+    <p class="alert alert-danger" style="margin-bottom: 0px;"><%= alert %></p>
+  <% end %>
+
+
+
   <%= yield %>
 
   </body>

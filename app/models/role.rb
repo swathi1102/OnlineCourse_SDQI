@@ -12,4 +12,7 @@ validates :resource,
           :allow_nil => true
 
 scopify
+
+  # has_many :users
+
 end

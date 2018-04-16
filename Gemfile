@@ -8,7 +8,6 @@ end
 gem 'bulma-rails', '~> 0.6.2'
 gem 'simple_form', '~> 3.5'
 gem 'gravatar_image_tag', '~> 1.2'
-gem 'rolify', '~> 5.2'
 gem 'friendly_id', '~> 5.2', '>= 5.2.3'
 gem 'redcarpet', '~> 3.4'
 gem 'coderay', '~> 1.1', '>= 1.1.2'

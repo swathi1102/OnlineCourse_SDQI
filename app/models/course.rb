@@ -11,7 +11,6 @@ class Course < ApplicationRecord
 
   has_many :pdfdocs, inverse_of: :course, dependent: :nullify
   accepts_nested_attributes_for :pdfdocs, reject_if: :all_blank, allow_destroy: true
-  resourcify
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
 

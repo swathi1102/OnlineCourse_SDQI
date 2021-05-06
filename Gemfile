@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bulma-rails', '~> 0.6.2'
-gem 'simple_form', '~> 3.5'
+gem 'simple_form', '~> 5.0'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'friendly_id', '~> 5.2', '>= 5.2.3'
 gem 'redcarpet', '~> 3.4'
